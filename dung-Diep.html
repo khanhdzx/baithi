@@ -7,8 +7,12 @@
 </head>
 <body>
 
-<img id="dung" src="https://scontent.fhan3-2.fna.fbcdn.net/v/t39.30808-6/278925557_147882964418787_2912407533835685895_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_ohc=YFPxLePhCN0AX8JcL8i&_nc_ht=scontent.fhan3-2.fna&oh=00_AT_6IORUVJZjJ4TJkupBLNpmPL9jU8POR4LfbJl7lzkLDQ&oe=631D344D"  style="position: absolute; left: 0; top: 0; width: 200px; height: 200px ">
-<img id="diep" src="https://scontent.fhan4-3.fna.fbcdn.net/v/t1.6435-9/148512557_1131020863992932_3101981519159299365_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=174925&_nc_ohc=Z3cMYEqWZNAAX9nIS0d&tn=ivT01PTYvVZlxJuY&_nc_ht=scontent.fhan4-3.fna&oh=00_AT9IgkdkurLz0zTkjxq05L1VoKfKAzLpzfTNRLqNoe2zEg&oe=633C3192" style="position: absolute; left: 500px; top: 0; width: 200px; height: 200px ">
+<img id="dung"
+     src="https://scontent.fhan3-2.fna.fbcdn.net/v/t39.30808-6/278925557_147882964418787_2912407533835685895_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_ohc=YFPxLePhCN0AX8JcL8i&_nc_ht=scontent.fhan3-2.fna&oh=00_AT_6IORUVJZjJ4TJkupBLNpmPL9jU8POR4LfbJl7lzkLDQ&oe=631D344D"
+     style="position: absolute; left: 0; top: 0; width: 200px; height: 200px ">
+<img id="diep"
+     src="https://scontent.fhan4-3.fna.fbcdn.net/v/t1.6435-9/148512557_1131020863992932_3101981519159299365_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=174925&_nc_ohc=Z3cMYEqWZNAAX9nIS0d&tn=ivT01PTYvVZlxJuY&_nc_ht=scontent.fhan4-3.fna&oh=00_AT9IgkdkurLz0zTkjxq05L1VoKfKAzLpzfTNRLqNoe2zEg&oe=633C3192"
+     style="position: absolute; left: 500px; top: 0; width: 200px; height: 200px ">
 
 <script>
 
@@ -18,7 +22,7 @@
     isMeetX = false;
     isMeetY = false;
 
-    let isRight = false;
+    let isRight = false
     let isLeft = false;
     let isUp = false;
     let isDown = false;
@@ -74,11 +78,12 @@
     }
 
     function meet() {
-        alert('hello');
+        alert('chào em');
+        alert('anh đứng đây từ chiều')
     }
 
     let moving = true;
-
+    let moving2 = true;
     function repeat() {
 
         let dungX = parseInt(dungImg.style.left);
@@ -91,7 +96,7 @@
         let diepH = diepX + parseInt(diepImg.style.width);
         let diepV = diepY + parseInt(diepImg.style.height);
 
-        let isMeetX = dungH >= diepX && diepH >=dungX;
+        let isMeetX = dungH >= diepX && diepH >= dungX;
         let isMeetY = dungV >= diepY && diepV >= dungY;
 
         if (isMeetX && isMeetY) {
@@ -103,10 +108,10 @@
             isUp = false;
             isDown = false;
         } else {
-            if(isRight) moveRight();
-            if(isLeft) moveLeft();
-            if(isUp) moveUp();
-            if(isDown) moveDown();
+            if (isRight) moveRight();
+            if (isLeft) moveLeft();
+            if (isUp) moveUp();
+            if (isDown) moveDown();
         }
 
         if (moving) {

@@ -6,23 +6,23 @@
 </head>
 <body>
 <h5> Nhập 3 cạnh của tam giác</h5>
-Cạnh A : <input type="numer" id="A" value=0><br>
-Cạnh B : <input type="numer" id="B" value=0><br>
-Cạnh C : <input type="numer" id="C" value=0><br>
+Cạnh A : <input type="text" id="A"><br>
+Cạnh B : <input type="text" id="B"><br>
+Cạnh C : <input type="text" id="C"><br>
 <button onclick="check()"> Kiểm Tra</button>
 <p id="ketQua"></p>
 <script>
-    function check(){
-        let A= +document.getElementById('A').value;
-        let B= +document.getElementById('B').value;
-        let C= +document.getElementById('C').value;
-        if (A<0|| B<0 ||C<0) {
-            document.getElementById('ketQua').innerText='Cạnh của tam giác phải > 0';}
-         else if ((A * A == B*B+C*C) ||(B*B == A*A+C*C) ||(C*C == B*B+A*A))
-        {
-        document.getElementById('ketQua').innerText='tam giác vuông';}
-        else{
-            document.getElementById('ketQua').innerText='tam giác thường';}
+    function check() {
+        let A = +document.getElementById('A').value;
+        let B = +document.getElementById('B').value;
+        let C = +document.getElementById('C').value;
+        if (A < 0 || B < 0 || C < 0) {
+            document.getElementById('ketQua').innerText = 'Cạnh của tam giác phải > 0';
+        } else if ((A * A == B * B + C * C) || (B * B == A * A + C * C) || (C * C == B * B + A * A)) {
+            document.getElementById('ketQua').innerText = 'tam giác vuông';
+        } else {
+            document.getElementById('ketQua').innerText = 'tam giác thường';
+        }
     }
 </script>
 </body>
