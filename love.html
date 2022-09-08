@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<img id="dung" src="https://scontent.fhan3-2.fna.fbcdn.net/v/t39.30808-6/278925557_147882964418787_2912407533835685895_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=174925&_nc_ohc=YFPxLePhCN0AX8JcL8i&_nc_ht=scontent.fhan3-2.fna&oh=00_AT_6IORUVJZjJ4TJkupBLNpmPL9jU8POR4LfbJl7lzkLDQ&oe=631D344D"  style="position: absolute; left: 0; top: 0; width: 200px; height: 200px ">
+<img id="diep" src="https://scontent.fhan4-3.fna.fbcdn.net/v/t1.6435-9/148512557_1131020863992932_3101981519159299365_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=174925&_nc_ohc=Z3cMYEqWZNAAX9nIS0d&tn=ivT01PTYvVZlxJuY&_nc_ht=scontent.fhan4-3.fna&oh=00_AT9IgkdkurLz0zTkjxq05L1VoKfKAzLpzfTNRLqNoe2zEg&oe=633C3192" style="position: absolute; left: 500px; top: 0; width: 200px; height: 200px ">
+
+<script>
+
+    let dungImg = document.getElementById('dung');
+    let diepImg = document.getElementById('diep');
+
+    isMeetX = false;
+    isMeetY = false;
+
+    let isRight = false;
+    let isLeft = false;
+    let isUp = false;
+    let isDown = false;
+
+    document.addEventListener('keydown', function (k) {
+        switch (k.keyCode) {
+            case 39:
+                isRight = true;
+                break;
+            case 37:
+                isLeft = true;
+                break;
+            case 38:
+                isUp = true;
+                break;
+            case 40:
+                isDown = true;
+                break;
+        }
+    })
+
+    document.addEventListener('keyup', function (r) {
+        switch (r.keyCode) {
+            case 39:
+                isRight = false;
+                break;
+            case 37:
+                isLeft = false;
+                break;
+            case 38:
+                isUp = false;
+                break;
+            case 40:
+                isDown = false;
+                break;
+        }
+    })
+
+    function moveLeft() {
+        dungImg.style.left = parseInt(dungImg.style.left) - 10 + 'px';
+    }
+
+    function moveRight() {
+        dungImg.style.left = parseInt(dungImg.style.left) + 10 + 'px';
+    }
+
+    function moveUp() {
+        dungImg.style.top = parseInt(dungImg.style.top) - 10 + 'px';
+    }
+
+    function moveDown() {
+        dungImg.style.top = parseInt(dungImg.style.top) + 10 + 'px';
+    }
+
+    function meet() {
+        alert('hello');
+    }
+
+    let moving = true;
+
+    function repeat() {
+
+        let dungX = parseInt(dungImg.style.left);
+        let dungY = parseInt(dungImg.style.top);
+        let diepX = parseInt(diepImg.style.left);
+        let diepY = parseInt(diepImg.style.top);
+
+        let dungH = dungX + parseInt(dungImg.style.width);
+        let dungV = dungY + parseInt(dungImg.style.height);
+        let diepH = diepX + parseInt(diepImg.style.width);
+        let diepV = diepY + parseInt(diepImg.style.height);
+
+        let isMeetX = dungH >= diepX && diepH >=dungX;
+        let isMeetY = dungV >= diepY && diepV >= dungY;
+
+        if (isMeetX && isMeetY) {
+            meet();
+            dungImg.style.left = '0px';
+            dungImg.style.top = '0px';
+            isRight = false;
+            isLeft = false;
+            isUp = false;
+            isDown = false;
+        } else {
+            if(isRight) moveRight();
+            if(isLeft) moveLeft();
+            if(isUp) moveUp();
+            if(isDown) moveDown();
+        }
+
+        if (moving) {
+            diepImg.style.top = parseInt(diepImg.style.top) + 10 + 'px'
+            if (parseInt(diepImg.style.top) > window.innerHeight - parseInt(diepImg.style.width)) {
+                moving = false;
+            }
+        } else {
+            diepImg.style.top = parseInt(diepImg.style.top) - 10 + 'px'
+            if (parseInt(diepImg.style.top) < 0) {
+                moving = true;
+            }
+        }
+        requestAnimationFrame(repeat);
+    }
+
+    requestAnimationFrame(repeat);
+
+</script>
+
+</body>
+</html>
